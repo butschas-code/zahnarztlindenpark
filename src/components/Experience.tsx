@@ -36,11 +36,11 @@ export default function Experience() {
                 <StaggerItem key={reason.title}>
                   <HoverLift>
                     <div className="panel panel-hover h-full rounded-sm p-5 sm:p-6">
-                      <span className="mb-4 block h-1 w-8 bg-gradient-to-r from-brand to-brand-soft" />
-                      <h3 className="font-display text-[1.25rem] leading-snug text-brand-deep sm:text-[1.35rem]">
+                      <span className="mb-4 block h-1 w-8 bg-brand-300" />
+                      <h3 className="font-display text-[1.25rem] leading-snug text-heading sm:text-[1.35rem]">
                         {reason.title}
                       </h3>
-                      <p className="mt-2.5 text-[0.92rem] leading-relaxed text-slate">
+                      <p className="mt-2.5 text-[0.92rem] leading-relaxed text-body">
                         {reason.text}
                       </p>
                     </div>
@@ -60,15 +60,15 @@ export default function Experience() {
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-deep/30 via-transparent to-brand/15" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-scrim/15 via-transparent to-cerulean-50/50" />
               </div>
             </div>
             <span
-              className="hex absolute -top-5 -right-4 block h-16 w-14 bg-brand/85 sm:-right-6"
+              className="hex absolute -top-5 -right-4 block h-16 w-14 bg-brand sm:-right-6"
               aria-hidden="true"
             />
             <span
-              className="hex absolute -bottom-7 left-6 block h-20 w-[4.3rem] bg-brand-mist/90"
+              className="hex absolute -bottom-7 left-6 block h-20 w-[4.3rem] bg-plum-100"
               aria-hidden="true"
             />
           </Reveal>

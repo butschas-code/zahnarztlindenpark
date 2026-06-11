@@ -1,22 +1,84 @@
 @import "tailwindcss";
 
-@theme {
-  /* Logo blue #0000a0 and harmonized arctic family */
-  --color-brand: #0000a0;
-  --color-brand-deep: #000070;
-  --color-brand-bright: #2d2db8;
-  --color-brand-soft: #6666d4;
-  --color-brand-mist: #c8c8f0;
-  --color-brand-glow: #e8e8fa;
+/*
+ * LINDENPARK BRAND COLOR SYSTEM
+ * ─────────────────────────────
+ * Source palette (intense — logo & reference only):
+ *   #1004A1 royal · #0328A1 vibrant blue · #4403A1 indigo
+ *   #035AA1 cerulean · #7703A1 magenta-violet
+ *
+ * Strategy: UI uses gentle, desaturated derivatives (~35–45% saturation).
+ * Logo PNG stays vivid; buttons, links, and surfaces use softer harmonized tones.
+ */
 
-  --color-night: #050818;
-  --color-navy: #000080;
-  --color-astral: #0000a0;
-  --color-astral-light: #8a8ad4;
-  --color-ice: #d4d4f0;
-  --color-ice-light: #ededfa;
-  --color-paper: #f6f6fc;
-  --color-slate: #3d3d52;
+@theme {
+  /* —— Primary UI blue (softened #0328A1) —— */
+  --color-brand: #4a62b5;
+  --color-brand-hover: #4258a5;
+  --color-brand-active: #394d94;
+
+  /* —— Soft blue companions (tints of primary) —— */
+  --color-brand-50: #f2f4fa;
+  --color-brand-100: #e6e9f3;
+  --color-brand-200: #d1d7e8;
+  --color-brand-300: #b3bdd4;
+  --color-brand-400: #8994b8;
+
+  /* —— Deep anchor (softened #1004A1) — footer only —— */
+  --color-brand-deep: #353d72;
+  --color-brand-deep-soft: #464f88;
+
+  /* —— Accent hues (softened #4403A1 · #035AA1 · #7703A1) —— */
+  --color-accent-violet: #6e66a0;
+  --color-accent-cerulean: #5a88b0;
+  --color-accent-plum: #9278a8;
+  --color-violet-50: #f0eef6;
+  --color-violet-100: #e2deee;
+  --color-cerulean-50: #edf3f8;
+  --color-cerulean-100: #dce8f2;
+  --color-plum-50: #f4eef6;
+  --color-plum-100: #e8deec;
+
+  /* —— Typography —— */
+  --color-heading: #343852;
+  --color-body: #585c72;
+  --color-muted: #86889c;
+  --color-faint: #a5a7b5;
+
+  /* —— Surfaces —— */
+  --color-surface: #faf9f8;
+  --color-surface-raised: #fdfcfc;
+  --color-surface-soft: #f2f4f9;
+  --color-surface-warm: #f7f5f1;
+  --color-surface-accent: #eeecf4;
+
+  /* —— Borders & lines —— */
+  --color-line: #e4e2de;
+  --color-line-soft: #eeecea;
+  --color-line-brand: #d4d8e8;
+  --color-line-violet: #ddd8ea;
+
+  /* —— Overlays (photos) —— */
+  --color-scrim: #2a2e48;
+
+  /* —— Legacy aliases —— */
+  --color-brand-mist: var(--color-brand-200);
+  --color-brand-glow: var(--color-brand-50);
+  --color-brand-tint: var(--color-brand-100);
+  --color-brand-soft: var(--color-brand-400);
+  --color-brand-bright: #5568b8;
+  --color-ink: var(--color-heading);
+  --color-ink-soft: var(--color-body);
+  --color-ink-faint: var(--color-muted);
+  --color-paper: var(--color-surface);
+  --color-canvas: var(--color-surface-warm);
+  --color-slate: var(--color-body);
+  --color-night: var(--color-brand-deep);
+  --color-navy: var(--color-brand-deep);
+  --color-astral: var(--color-brand);
+  --color-astral-light: var(--color-brand-200);
+  --color-ice: var(--color-brand-200);
+  --color-ice-light: var(--color-brand-50);
 
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
@@ -27,7 +89,7 @@ html {
 }
 
 section[id] {
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 4.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -37,8 +99,8 @@ section[id] {
 }
 
 body {
-  background-color: #fafafe;
-  color: var(--color-slate);
+  background-color: var(--color-surface);
+  color: var(--color-body);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -46,60 +108,89 @@ body {
 }
 
 ::selection {
-  background: var(--color-brand-mist);
-  color: var(--color-brand-deep);
+  background: var(--color-brand-200);
+  color: var(--color-heading);
 }
 
-/* ---- Subtle section atmospheres ---- */
+/* —— Section surfaces —— */
 
+/* Default warm — welcome, contact, team gallery */
 .surface-light {
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 0%, color-mix(in srgb, var(--color-brand) 7%, transparent), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 90% 100%, color-mix(in srgb, var(--color-brand-soft) 10%, transparent), transparent 50%),
-    linear-gradient(180deg, #fafafe 0%, var(--color-paper) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface-raised) 0%,
+    var(--color-surface-warm) 100%
+  );
 }
 
+/* Cool soft — cerulean wash (#035AA1 family) */
+.surface-soft {
+  background: linear-gradient(
+    168deg,
+    var(--color-surface-raised) 0%,
+    var(--color-cerulean-50) 45%,
+    var(--color-brand-50) 100%
+  );
+}
+
+/* Gentle emphasis — violet wash (#4403A1 family) */
+.surface-accent {
+  background: linear-gradient(
+    165deg,
+    var(--color-violet-50) 0%,
+    var(--color-surface-accent) 48%,
+    var(--color-plum-50) 100%
+  );
+}
+
+/* Footer — softened royal (#1004A1 family) */
+.surface-deep {
+  background: linear-gradient(
+    168deg,
+    var(--color-brand-deep) 0%,
+    color-mix(in srgb, var(--color-brand-deep) 88%, var(--color-accent-violet)) 100%
+  );
+}
+
+/* Legacy names → map to new system */
 .surface-ice {
-  background:
-    radial-gradient(ellipse 70% 55% at 85% 15%, color-mix(in srgb, var(--color-brand) 9%, transparent), transparent 50%),
-    linear-gradient(165deg, var(--color-ice-light) 0%, #fafafe 55%, var(--color-brand-glow) 100%);
+  background: linear-gradient(
+    168deg,
+    var(--color-surface-raised) 0%,
+    var(--color-surface-soft) 55%,
+    var(--color-brand-50) 100%
+  );
 }
 
-.surface-dark {
-  background:
-    radial-gradient(ellipse 90% 70% at 20% 0%, color-mix(in srgb, var(--color-brand-bright) 35%, transparent), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, color-mix(in srgb, var(--color-brand) 20%, transparent), transparent 45%),
-    linear-gradient(165deg, var(--color-night) 0%, var(--color-navy) 48%, #000060 100%);
-}
-
+.surface-dark,
 .surface-brand {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--color-brand-bright) 40%, transparent), transparent 60%),
-    linear-gradient(160deg, var(--color-brand-deep) 0%, var(--color-brand) 55%, #000090 100%);
+  background: linear-gradient(
+    165deg,
+    var(--color-brand-50) 0%,
+    var(--color-surface-accent) 50%,
+    var(--color-surface-soft) 100%
+  );
 }
 
-/* ---- Cards & panels ---- */
+/* —— Cards —— */
 
 .panel {
-  border: 1px solid color-mix(in srgb, var(--color-brand) 12%, transparent);
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, #fff 92%, var(--color-brand-glow)),
-    color-mix(in srgb, #fff 98%, var(--color-ice-light))
-  );
+  border: 1px solid var(--color-line-soft);
+  background: var(--color-surface-raised);
   box-shadow:
     0 1px 0 color-mix(in srgb, #fff 80%, transparent) inset,
-    0 24px 48px -32px color-mix(in srgb, var(--color-brand) 28%, transparent);
+    0 16px 40px -28px color-mix(in srgb, var(--color-heading) 10%, transparent);
+}
+
+.panel-muted {
+  border: 1px solid var(--color-line-brand);
+  background: color-mix(in srgb, var(--color-brand-50) 60%, var(--color-surface-raised));
 }
 
 .panel-dark {
-  border: 1px solid color-mix(in srgb, #fff 12%, transparent);
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--color-brand) 22%, var(--color-night)),
-    color-mix(in srgb, var(--color-brand-deep) 55%, var(--color-night))
-  );
-  box-shadow: 0 28px 56px -36px rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--color-line-brand);
+  background: var(--color-surface-raised);
+  box-shadow: 0 16px 40px -28px color-mix(in srgb, var(--color-heading) 10%, transparent);
 }
 
 .panel-hover {
@@ -111,15 +202,15 @@ body {
 
 @media (hover: hover) {
   .panel-hover:hover {
-    transform: translateY(-5px);
-    border-color: color-mix(in srgb, var(--color-brand) 28%, transparent);
+    transform: translateY(-4px);
+    border-color: var(--color-line-brand);
     box-shadow:
       0 1px 0 color-mix(in srgb, #fff 80%, transparent) inset,
-      0 32px 64px -28px color-mix(in srgb, var(--color-brand) 35%, transparent);
+      0 24px 48px -24px color-mix(in srgb, var(--color-brand) 12%, transparent);
   }
 }
 
-/* ---- Buttons ---- */
+/* —— Buttons —— */
 
 .btn {
   display: inline-flex;
@@ -138,53 +229,54 @@ body {
     color 0.25s,
     border-color 0.25s,
     background-color 0.25s,
-    transform 0.25s,
     box-shadow 0.25s;
 }
 
 .btn-ice {
-  background: linear-gradient(180deg, var(--color-brand-mist) 0%, var(--color-ice) 100%);
-  border-color: color-mix(in srgb, var(--color-brand) 18%, transparent);
-  color: var(--color-brand-deep);
+  background: var(--color-surface-raised);
+  border-color: var(--color-line-brand);
+  color: var(--color-brand);
 }
 .btn-ice:hover {
-  background: linear-gradient(180deg, #fff 0%, var(--color-brand-glow) 100%);
-  box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--color-brand) 45%, transparent);
+  background: var(--color-brand-50);
+  border-color: var(--color-brand-300);
+  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--color-brand) 20%, transparent);
 }
 
 .btn-brand {
-  background: linear-gradient(180deg, var(--color-brand-bright) 0%, var(--color-brand) 100%);
+  background: var(--color-brand);
   border-color: var(--color-brand);
-  color: #fff;
+  color: #f8f8fc;
 }
 .btn-brand:hover {
-  background: linear-gradient(180deg, var(--color-brand) 0%, var(--color-brand-deep) 100%);
-  box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--color-brand) 55%, transparent);
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--color-brand) 35%, transparent);
 }
 
 .btn-outline-light {
-  border-color: rgba(255, 255, 255, 0.85);
-  color: #fff;
+  border-color: color-mix(in srgb, #f8f8fc 72%, transparent);
+  color: #f8f8fc;
 }
 .btn-outline-light:hover {
-  background-color: #fff;
-  color: var(--color-brand-deep);
+  background-color: #f8f8fc;
+  color: var(--color-brand);
 }
 
 .btn-outline-dark {
-  border-color: color-mix(in srgb, var(--color-brand) 45%, transparent);
+  border-color: var(--color-brand-300);
   color: var(--color-brand);
 }
 .btn-outline-dark:hover {
   background: var(--color-brand);
-  color: #fff;
+  border-color: var(--color-brand);
+  color: #f8f8fc;
 }
 
 .hex {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-/* Horizontal review scroller – hide scrollbar, keep swipe */
 .review-track {
   scrollbar-width: none;
   -ms-overflow-style: none;

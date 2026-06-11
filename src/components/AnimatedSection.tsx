@@ -84,7 +84,6 @@ export function StaggerItem({
   );
 }
 
-/** Gentle lift on hover for cards and panels. */
 export function HoverLift({
   children,
   className,
@@ -121,10 +120,9 @@ export function SectionHeading({
   className?: string;
 }) {
   const center = align === "center";
-  const titleColor = tone === "light" ? "text-brand-deep" : "text-white";
-  const ruleColor =
-    tone === "light" ? "border-brand/35" : "border-brand-mist/50";
-  const leadColor = tone === "light" ? "text-slate" : "text-white/78";
+  const titleColor = tone === "light" ? "text-heading" : "text-white";
+  const ruleColor = tone === "light" ? "border-brand-200" : "border-white/25";
+  const leadColor = tone === "light" ? "text-body" : "text-white/75";
 
   return (
     <div className={`${center ? "mx-auto text-center" : ""} ${className ?? ""}`}>

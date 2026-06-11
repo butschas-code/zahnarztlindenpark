@@ -11,7 +11,6 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const imageY = useTransform(scrollY, [0, 600], [0, reduce ? 0 : 90]);
   const contentY = useTransform(scrollY, [0, 600], [0, reduce ? 0 : 40]);
-  const overlayOpacity = useTransform(scrollY, [0, 500], [0.55, 0.78]);
 
   const rise = (delay: number) => ({
     initial: reduce ? { opacity: 1 } : { opacity: 0, y: 28 },
@@ -32,13 +31,10 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Brand-tinted gradient stack */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-brand-deep/80 via-brand/55 to-night/70"
-        style={{ opacity: overlayOpacity }}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_20%,rgba(102,102,212,0.28),transparent_60%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-night via-night/80 to-transparent" />
+      {/* Neutral scrim — photo stays natural, text stays readable */}
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_45%,rgba(0,0,0,0.35),transparent_65%)]" />
 
       <motion.div
         style={{ y: contentY }}
@@ -46,7 +42,7 @@ export default function Hero() {
       >
         <motion.p
           {...rise(0.08)}
-          className="font-display text-xl text-brand-mist italic sm:text-2xl"
+          className="font-display text-xl text-white/90 italic sm:text-2xl"
         >
           Willkommen im Lindenpark
         </motion.p>
@@ -100,7 +96,7 @@ export default function Hero() {
         <motion.span
           animate={reduce ? undefined : { y: [0, 10, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-12 w-px bg-gradient-to-b from-transparent via-brand-mist to-transparent"
+          className="block h-12 w-px bg-gradient-to-b from-transparent via-white/50 to-transparent"
         />
       </motion.a>
     </section>
@@ -114,7 +110,7 @@ function StarRow({ rating }: { rating: number }) {
         <svg
           key={i}
           viewBox="0 0 20 20"
-          className={`h-4 w-4 ${i < Math.round(rating) ? "text-amber-300" : "text-white/25"}`}
+          className={`h-4 w-4 ${i < Math.round(rating) ? "text-[#e8c547]" : "text-white/25"}`}
           fill="currentColor"
         >
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

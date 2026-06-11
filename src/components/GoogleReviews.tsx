@@ -16,34 +16,30 @@ export default function GoogleReviews() {
   };
 
   return (
-    <section id="bewertungen" className="surface-brand relative overflow-hidden text-white">
-      <div className="pointer-events-none absolute -top-20 right-1/4 h-80 w-80 rounded-full bg-brand-bright/25 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-brand-soft/15 blur-3xl" />
-
+    <section id="bewertungen" className="surface-soft relative overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:py-32">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
-            tone="dark"
             title="Was Patienten sagen"
             lead="Echte Rückmeldungen von Google – über Atmosphäre, Kompetenz und das Gefühl, gut aufgehoben zu sein."
           />
 
           <Reveal delay={0.1}>
-            <div className="panel-dark flex items-center gap-5 rounded-sm px-6 py-4">
+            <div className="panel flex items-center gap-5 rounded-sm px-6 py-4">
               <div>
-                <p className="font-display text-4xl leading-none text-white">
+                <p className="font-display text-4xl leading-none text-brand">
                   {site.googleRating.toFixed(1).replace(".", ",")}
                 </p>
                 <StarRow rating={site.googleRating} />
               </div>
-              <div className="h-10 w-px bg-white/15" />
+              <div className="h-10 w-px bg-line-brand" />
               <div>
-                <p className="text-sm text-white/70">Google Bewertungen</p>
+                <p className="text-sm text-muted">Google Bewertungen</p>
                 <a
                   href={site.googleReviewsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 inline-block text-sm font-medium text-brand-mist underline-offset-4 hover:underline"
+                  className="mt-1 inline-block text-sm font-medium text-brand underline-offset-4 hover:text-brand-hover hover:underline"
                 >
                   Alle ansehen →
                 </a>
@@ -53,8 +49,8 @@ export default function GoogleReviews() {
         </div>
 
         <div className="relative mt-12">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-16 bg-gradient-to-r from-brand-deep/90 to-transparent lg:block" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 bg-gradient-to-l from-brand-deep/90 to-transparent lg:block" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-16 bg-gradient-to-r from-brand-50 to-transparent lg:block" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 bg-gradient-to-l from-brand-50 to-transparent lg:block" />
 
           <motion.div
             ref={trackRef}
@@ -71,15 +67,15 @@ export default function GoogleReviews() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: i * 0.07, ease: EASE }}
-                className="panel-dark w-[min(88vw,22rem)] shrink-0 snap-start rounded-sm p-6 sm:w-[22rem] lg:w-[24rem]"
+                className="panel w-[min(88vw,22rem)] shrink-0 snap-start rounded-sm p-6 sm:w-[22rem] lg:w-[24rem]"
               >
                 <StarRow rating={5} small />
-                <p className="mt-4 font-display text-lg leading-snug text-white/92">
+                <p className="mt-4 font-display text-lg leading-snug text-heading">
                   «{review.quote}»
                 </p>
-                <footer className="mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm">
-                  <span className="text-white/65">{review.author}</span>
-                  <span className="inline-flex items-center gap-1.5 text-white/50">
+                <footer className="mt-5 flex items-center justify-between gap-3 border-t border-line-soft pt-4 text-sm">
+                  <span className="text-muted">{review.author}</span>
+                  <span className="inline-flex items-center gap-1.5 text-faint">
                     <GoogleMark />
                     {review.source}
                   </span>
@@ -93,7 +89,7 @@ export default function GoogleReviews() {
               type="button"
               onClick={() => scrollBy(-1)}
               aria-label="Vorherige Bewertung"
-              className="btn btn-outline-light !min-h-[2.5rem] !px-4 !text-sm"
+              className="btn btn-outline-dark !min-h-[2.5rem] !px-4 !text-sm"
             >
               ←
             </button>
@@ -101,7 +97,7 @@ export default function GoogleReviews() {
               type="button"
               onClick={() => scrollBy(1)}
               aria-label="Nächste Bewertung"
-              className="btn btn-outline-light !min-h-[2.5rem] !px-4 !text-sm"
+              className="btn btn-outline-dark !min-h-[2.5rem] !px-4 !text-sm"
             >
               →
             </button>
@@ -120,7 +116,7 @@ function StarRow({ rating, small }: { rating: number; small?: boolean }) {
         <svg
           key={i}
           viewBox="0 0 20 20"
-          className={`${size} ${i < Math.round(rating) ? "text-amber-300" : "text-white/25"}`}
+          className={`${size} ${i < Math.round(rating) ? "text-[#d4a017]" : "text-brand-200"}`}
           fill="currentColor"
         >
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

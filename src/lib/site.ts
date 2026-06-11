@@ -78,9 +78,7 @@ export const openingHours = [
 export const navLinks = [
   { label: "Praxis", href: "#praxis" },
   { label: "Behandlungen", href: "#behandlungen" },
-  { label: "Bewertungen", href: "#bewertungen" },
   { label: "Team", href: "#team" },
-  { label: "Angstpatienten", href: "#lachgas" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
