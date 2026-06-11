@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  /* Logo blue #0000a0 and harmonized arctic family */
+  --color-brand: #0000a0;
+  --color-brand-deep: #000070;
+  --color-brand-bright: #2d2db8;
+  --color-brand-soft: #6666d4;
+  --color-brand-mist: #c8c8f0;
+  --color-brand-glow: #e8e8fa;
+
+  --color-night: #050818;
+  --color-navy: #000080;
+  --color-astral: #0000a0;
+  --color-astral-light: #8a8ad4;
+  --color-ice: #d4d4f0;
+  --color-ice-light: #ededfa;
+  --color-paper: #f6f6fc;
+  --color-slate: #3d3d52;
+
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: #fafafe;
+  color: var(--color-slate);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-brand-mist);
+  color: var(--color-brand-deep);
+}
+
+/* ---- Subtle section atmospheres ---- */
+
+.surface-light {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, color-mix(in srgb, var(--color-brand) 7%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, color-mix(in srgb, var(--color-brand-soft) 10%, transparent), transparent 50%),
+    linear-gradient(180deg, #fafafe 0%, var(--color-paper) 100%);
+}
+
+.surface-ice {
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 15%, color-mix(in srgb, var(--color-brand) 9%, transparent), transparent 50%),
+    linear-gradient(165deg, var(--color-ice-light) 0%, #fafafe 55%, var(--color-brand-glow) 100%);
+}
+
+.surface-dark {
+  background:
+    radial-gradient(ellipse 90% 70% at 20% 0%, color-mix(in srgb, var(--color-brand-bright) 35%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, color-mix(in srgb, var(--color-brand) 20%, transparent), transparent 45%),
+    linear-gradient(165deg, var(--color-night) 0%, var(--color-navy) 48%, #000060 100%);
+}
+
+.surface-brand {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--color-brand-bright) 40%, transparent), transparent 60%),
+    linear-gradient(160deg, var(--color-brand-deep) 0%, var(--color-brand) 55%, #000090 100%);
+}
+
+/* ---- Cards & panels ---- */
+
+.panel {
+  border: 1px solid color-mix(in srgb, var(--color-brand) 12%, transparent);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, #fff 92%, var(--color-brand-glow)),
+    color-mix(in srgb, #fff 98%, var(--color-ice-light))
+  );
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #fff 80%, transparent) inset,
+    0 24px 48px -32px color-mix(in srgb, var(--color-brand) 28%, transparent);
+}
+
+.panel-dark {
+  border: 1px solid color-mix(in srgb, #fff 12%, transparent);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-brand) 22%, var(--color-night)),
+    color-mix(in srgb, var(--color-brand-deep) 55%, var(--color-night))
+  );
+  box-shadow: 0 28px 56px -36px rgba(0, 0, 0, 0.55);
+}
+
+.panel-hover {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s;
+}
+
+@media (hover: hover) {
+  .panel-hover:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--color-brand) 28%, transparent);
+    box-shadow:
+      0 1px 0 color-mix(in srgb, #fff 80%, transparent) inset,
+      0 32px 64px -28px color-mix(in srgb, var(--color-brand) 35%, transparent);
+  }
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.625rem 1.625rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    color 0.25s,
+    border-color 0.25s,
+    background-color 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.btn-ice {
+  background: linear-gradient(180deg, var(--color-brand-mist) 0%, var(--color-ice) 100%);
+  border-color: color-mix(in srgb, var(--color-brand) 18%, transparent);
+  color: var(--color-brand-deep);
+}
+.btn-ice:hover {
+  background: linear-gradient(180deg, #fff 0%, var(--color-brand-glow) 100%);
+  box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--color-brand) 45%, transparent);
+}
+
+.btn-brand {
+  background: linear-gradient(180deg, var(--color-brand-bright) 0%, var(--color-brand) 100%);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+.btn-brand:hover {
+  background: linear-gradient(180deg, var(--color-brand) 0%, var(--color-brand-deep) 100%);
+  box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--color-brand) 55%, transparent);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: var(--color-brand-deep);
+}
+
+.btn-outline-dark {
+  border-color: color-mix(in srgb, var(--color-brand) 45%, transparent);
+  color: var(--color-brand);
+}
+.btn-outline-dark:hover {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+.hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Horizontal review scroller – hide scrollbar, keep swipe */
+.review-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.review-track::-webkit-scrollbar {
+  display: none;
+}
