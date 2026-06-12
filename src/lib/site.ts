@@ -162,7 +162,7 @@ export const doctor: TeamMember = {
     "WBA SSO Allg. Zahnmedizin",
     "Fähigkeitsausweis Lachgassedation SVK",
   ],
-  image: "/images/team/martin-schaerer.jpg",
+  image: "/images/team/martin-schaerer.png",
 };
 
 export const team: TeamMember[] = [
@@ -170,62 +170,62 @@ export const team: TeamMember[] = [
     name: "Sonja Schärer",
     role: "Zahnärztin SSO",
     credentials: ["M of dental medicine, med. dent.", "zur Zeit in Weiterbildung im LUKS"],
-    image: "/images/team/sonja-schaerer.jpg",
+    image: "/images/team/sonja-schaerer.png",
   },
   {
     name: "Matthias Kellenberger",
     role: "Facharzt Kiefer- und Gesichtschirurgie FMH",
     credentials: ["Dr. med. dent. et Dr. med."],
-    image: "/images/team/matthias-kellenberger.jpg",
+    image: "/images/team/matthias-kellenberger.png",
   },
   {
     name: "Livia Henseler",
     role: "dipl. Dentalhygienikerin HF",
-    image: "/images/team/livia-henseler.jpg",
+    image: "/images/team/livia-henseler.png",
   },
   {
     name: "Selma Demir",
     role: "Dentalhygienikerin HF im Praktikum",
-    image: "/images/team/selma-demir.jpg",
+    image: "/images/team/selma-demir.png",
   },
   {
     name: "Laura De Flumeri",
     role: "dipl. Prophylaxeassistentin SSO",
-    image: "/images/team/laura-de-flumeri.jpg",
+    image: "/images/team/laura-de-flumeri.png",
   },
   {
     name: "Tanja Wicki",
     role: "dipl. Prophylaxeassistentin SSO",
-    image: "/images/team/tanja-wicki.jpg",
+    image: "/images/team/tanja-wicki.png",
   },
   {
     name: "Nisopitha Sinnathurai",
     role: "Dentalassistentin",
-    image: "/images/team/nisopitha-sinnathurai.jpg",
+    image: "/images/team/nisopitha-sinnathurai.png",
   },
   {
     name: "Jutta Albisser",
     role: "Dentalassistentin",
-    image: "/images/team/jutta-albisser.jpg",
+    image: "/images/team/jutta-albisser.png",
   },
   {
     name: "Irene Burkart",
     role: "Dentalassistentin",
-    image: "/images/team/irene-burkart.jpg",
+    image: "/images/team/irene-burkart.png",
   },
   {
     name: "Lulya Habtom",
     role: "Dentalassistentin in Ausbildung",
-    image: "/images/team/lulya-habtom.jpg",
+    image: "/images/team/lulya-habtom.png",
   },
   {
     name: "Andrea Wyler",
     role: "Dentalassistentin von Dr. M. Kellenberger",
-    image: "/images/team/andrea-wyler.jpg",
+    image: "/images/team/andrea-wyler.png",
   },
   {
     name: "Georgette Schärer",
     role: "Kauffrau / Fachfrau Sterilisation",
-    image: "/images/team/georgette-schaerer.jpg",
+    image: "/images/team/georgette-schaerer.png",
   },
 ];

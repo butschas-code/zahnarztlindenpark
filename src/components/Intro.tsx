@@ -13,7 +13,7 @@ export default function Intro() {
     offset: ["start end", "end start"],
   });
   const photoY = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : 40, reduce ? 0 : -40]);
-  const hexRotate = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 18]);
+  const circleY = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : 16, reduce ? 0 : -16]);
 
   return (
     <section id="praxis" ref={ref} className="surface-light relative overflow-hidden">
@@ -43,12 +43,20 @@ export default function Intro() {
               </motion.div>
             </Reveal>
 
-            <div className="col-span-12 hidden items-center justify-center pb-12 sm:col-span-2 sm:flex">
+            <div className="col-span-12 hidden items-center justify-center sm:col-span-2 sm:flex">
               <Reveal delay={0.12}>
-                <motion.div style={{ rotate: hexRotate }} className="flex flex-col items-center gap-4">
-                  <span className="hex block h-16 w-14 bg-violet-100" aria-hidden="true" />
-                  <span className="hex block h-11 w-9 bg-brand" aria-hidden="true" />
-                  <span className="hex block h-7 w-6 bg-cerulean-100" aria-hidden="true" />
+                <motion.div
+                  style={{ y: circleY }}
+                  className="relative mx-auto h-44 w-full max-w-[7rem]"
+                  aria-hidden="true"
+                >
+                  {/* Frosted circles — echoes the bubble glass in the practice photos */}
+                  <span className="absolute top-[6%] left-[10%] h-[4.25rem] w-[4.25rem] rounded-full border border-white/70 bg-violet-100/80 shadow-[0_10px_28px_-14px_rgba(74,98,181,0.28)]" />
+                  <span className="absolute top-[34%] left-[38%] h-[3.1rem] w-[3.1rem] rounded-full border border-white/60 bg-brand/88 shadow-sm" />
+                  <span className="absolute top-[58%] left-[8%] h-14 w-14 rounded-full border border-white/75 bg-cerulean-100/85" />
+                  <span className="absolute top-[18%] left-[54%] h-10 w-10 rounded-full bg-brand-200/90" />
+                  <span className="absolute top-[68%] left-[48%] h-7 w-7 rounded-full border border-white/55 bg-plum-100/80" />
+                  <span className="absolute top-[44%] left-[68%] h-5 w-5 rounded-full bg-brand-100/90" />
                 </motion.div>
               </Reveal>
             </div>

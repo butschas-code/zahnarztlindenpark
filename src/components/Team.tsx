@@ -22,11 +22,11 @@ export default function Team() {
                 </div>
               </div>
               <span
-                className="hex absolute -top-8 -left-6 block h-20 w-[4.3rem] bg-brand-200"
+                className="absolute -top-8 -left-6 block h-20 w-20 rounded-full border border-white/50 bg-brand-200/90"
                 aria-hidden="true"
               />
               <span
-                className="hex absolute -right-5 -bottom-7 block h-14 w-12 bg-brand"
+                className="absolute -right-5 -bottom-7 block h-14 w-14 rounded-full bg-brand"
                 aria-hidden="true"
               />
             </Reveal>

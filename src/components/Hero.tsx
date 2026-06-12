@@ -22,8 +22,8 @@ export default function Hero() {
     <section id="top" className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: imageY }}>
         <Image
-          src="/images/hero.jpg"
-          alt="Behandlungszimmer der Zahnarztpraxis Lindenpark in Kriens"
+          src="/images/hero.png"
+          alt="Behandlungszimmer mit Gletscher-Wandgestaltung in der Zahnarztpraxis Lindenpark, Kriens"
           fill
           priority
           sizes="100vw"

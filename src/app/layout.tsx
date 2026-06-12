@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "de_CH",
     type: "website",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "Behandlungszimmer der Zahnarztpraxis Lindenpark in Kriens" }],
+    images: [{ url: "/images/hero.png", width: 1254, height: 1254, alt: "Behandlungszimmer mit Gletscher-Wandgestaltung in der Zahnarztpraxis Lindenpark, Kriens" }],
   },
   alternates: { canonical: site.url },
   robots: { index: true, follow: true },
@@ -52,7 +52,7 @@ const jsonLd = {
   url: site.url,
   telephone: "+41413203747",
   email: site.email,
-  image: `${site.url}/images/hero.jpg`,
+  image: `${site.url}/images/hero.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,

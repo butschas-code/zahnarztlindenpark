@@ -64,11 +64,11 @@ export default function Experience() {
               </div>
             </div>
             <span
-              className="hex absolute -top-5 -right-4 block h-16 w-14 bg-brand sm:-right-6"
+              className="absolute -top-5 -right-4 block h-16 w-16 rounded-full bg-brand sm:-right-6"
               aria-hidden="true"
             />
             <span
-              className="hex absolute -bottom-7 left-6 block h-20 w-[4.3rem] bg-plum-100"
+              className="absolute -bottom-7 left-6 block h-20 w-20 rounded-full bg-plum-100"
               aria-hidden="true"
             />
           </Reveal>
